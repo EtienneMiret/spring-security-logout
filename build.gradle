@@ -2,9 +2,23 @@ plugins {
   id 'war'
 }
 
+sourceCompatibility = JavaVersion.VERSION_13
+targetCompatibility = JavaVersion.VERSION_13
+
 group 'io.miret.etienne.spring'
 version '1.0.0-SNAPSHOT'
 
 repositories {
   mavenCentral()
+}
+
+dependencies {
+  implementation platform('org.springframework.security:spring-security-bom:5.3.0.RELEASE')
+  implementation platform('org.springframework:spring-framework-bom:5.2.5.RELEASE')
+
+  implementation 'org.springframework.security:spring-security-web'
+  implementation 'org.springframework.security:spring-security-config'
+  implementation 'org.springframework:spring-webflux'
+
+  compileOnly 'javax.servlet:javax.servlet-api:4.0.1'
 }
